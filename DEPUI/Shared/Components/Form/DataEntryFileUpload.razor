@@ -1,0 +1,40 @@
+﻿@using DEPUI.Shared.Components.Form;
+@inject IJSRuntime JS;
+<file-upload>
+    <DataEntryControl Id="@Id" Label="@Label">
+        <InputFile OnChange="@SelectFile" id="@Id" @ref="inputFile" />
+        <file-select-name>
+        <DEPUI.Shared.Components.Shared.Button OnClick="OnFileSelectClick">Select File</DEPUI.Shared.Components.Shared.Button>
+            @if (SelectedFileName != null)
+        {
+                <div class="font-size-300"><span class="font-weight-500">Selected File:&nbsp;</span>@SelectedFileName</div>
+        }
+        </file-select-name>
+    </DataEntryControl>
+</file-upload>
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+    [Parameter]
+    public string? Label { get; set; }
+    [Parameter]
+    public EventCallback<IBrowserFile> OnFileSelect { get; set; }
+    [Parameter]
+    public string? SelectedFileName { get; set; }
+    private InputFile? inputFile;
+    private async Task OnFileSelectClick()
+    {
+        if (inputFile?.Element.HasValue ?? false)
+        {
+            await JS.InvokeVoidAsync("selectElement", inputFile.Element);
+        }
+    }
+
+    private async Task SelectFile(InputFileChangeEventArgs args)
+    {
+        if(args.FileCount == 1)
+        {
+            await OnFileSelect.InvokeAsync(args.File);
+        }
+    }
+}

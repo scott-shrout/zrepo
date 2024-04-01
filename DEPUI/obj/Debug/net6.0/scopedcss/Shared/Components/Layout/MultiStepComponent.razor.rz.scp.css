@@ -1,0 +1,33 @@
+
+multi-step-component[b-fxa6n6ep5a] {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    height: 100%;
+}
+
+    multi-step-component step-indicator-controls[b-fxa6n6ep5a] {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    multi-step-component step-indicator[b-fxa6n6ep5a] {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 30%;
+    }
+
+    multi-step-component step-indicator-controls[b-fxa6n6ep5a] {
+        display: flex;
+    }
+
+    multi-step-component step-indicator-controls step-controls[b-fxa6n6ep5a] {
+        display: flex;
+        column-gap: 5px;
+    }
+
+
+current-step-content[b-fxa6n6ep5a] {
+    height: 100%;
+}

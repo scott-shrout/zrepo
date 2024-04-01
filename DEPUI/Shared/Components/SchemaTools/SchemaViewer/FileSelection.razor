@@ -1,0 +1,36 @@
+﻿@using DEPUI.Models.Form
+@using DEPUI.Shared.Components.Form;
+
+@if (Context?.Request != null)
+{
+   
+    <DataEntryForm Model="@Context.Request" OnUpdate="@OnUpdate">
+        <file-selection>
+        <DataEntryComboBox  @bind-Value="Context!.Request!.LayoutType" Label="Layout Type" Selections="@layoutTypeSelections" Id="LayoutType" />
+        <DataEntryFileUpload Label="Schema File" OnFileSelect="OnFileSelect" Id="FileUpload" SelectedFileName="@Context.InputFileName" />
+  
+    </file-selection>
+</DataEntryForm>
+ 
+}
+@code {
+    [Parameter]
+    public Models.Layout.MultiStepComponentContext<Models.SchemaTools.SchemaViewer.SchemaViewerRequest>? Context { get; set; }
+    [Parameter]
+    public EventCallback OnUpdate { get; set; }
+    private IList<ComboBoxSelection> layoutTypeSelections = new[]
+    {
+        new ComboBoxSelection { DisplayValue = "", DataValue = ""},
+        new ComboBoxSelection {DisplayValue = "AsyncAPI",DataValue="AsyncAPI"},
+        new ComboBoxSelection { DisplayValue = "OpenAPI", DataValue = "OpenAPI"}
+    };
+
+    private async Task OnFileSelect(IBrowserFile file)
+    {
+        Context!.Request!.ApiSchema = null;
+        Context!.Request!.MessageTypeName = null;
+        Context!.InputFile = file;
+        Context!.InputFileName = file.Name;
+        await OnUpdate.InvokeAsync();
+    }
+}

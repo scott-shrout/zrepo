@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+}
+
+:root {
+    --light-gray: hsl(0, 0%, 95%);
+    --dark-green: hsl(135, 51%, 19%);
+    --light-green: hsl(91, 48%, 50%);
+    --plum: hsl(296, 51%, 26%);
+    --dark-pink: rgb(116,6,67);
+}
+
+.margin-left-70 { margin-left: 70px }
+.margin-left-100 { margin-left: 100px }
+.margin-left-200 { margin-left: 200px }
+.margin-left-250 { margin-left: 250px }
+.margin-left-300 { margin-left: 300px }
+.margin-left-400 { margin-left: 400px }
+
+
+.font-weight-500 { font-weight: 500; }
+
+.font-size-200 { font-size: 0.7em;}
+.font-size-300 { font-size: 0.8em;}
+.font-size-400 { font-size: 0.9em;}
+
+
+select {
+    border: 0;
+    margin: 0;
+    padding: 3px 5px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    outline: none;
+}
+
+h3 {
+    font-weight: 300;
+}

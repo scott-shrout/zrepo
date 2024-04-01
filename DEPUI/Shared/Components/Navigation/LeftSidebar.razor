@@ -1,0 +1,74 @@
+﻿<left-sidebar class="@(expanded ? "expanded" : "collapsed")" onmouseenter="@OnMouseEnter" onmouseleave="@OnMouseLeave">
+   <main-branding-pin>
+
+    <main-branding>
+        <DEPUI.Shared.Components.Shared.ImageTransitioner CurrentImagePath="@(expanded ? "branding/humana-full.svg" : "branding/humana-small.svg")" Height="@(expanded ? "80px" : "50px")" AltText="logo" />
+     
+
+        </main-branding>
+        <main-branding-pin-icon @onclick="() => SetPinState(!pinned)">
+            <icon-image>
+                <img src="images/icons/thumbtack-black.svg" class="@(pinned ? "active" : "")" />
+            </icon-image>
+            
+        </main-branding-pin-icon>
+    </main-branding-pin>
+    <CascadingValue Value="@expanded" Name="Expanded">
+        <DEPUI.Shared.Components.Navigation.MainNavigation Items="@navigationItemGroups"  />
+    </CascadingValue>
+</left-sidebar>
+
+
+@code {
+
+    [Parameter]
+    public EventCallback OnLeftSideBarToggle { get; set; }
+    private bool expanded { get; set; }
+    private bool pinned { get; set; }
+    private Models.Navigation.NavigationItemGroup[] navigationItemGroups = new[]
+    {
+        new Models.Navigation.NavigationItemGroup
+            {
+                Name = "Schema Tools",
+                IconPath = "file-lines-white.svg",
+                Items = new Models.Navigation.NavigationItem[]
+                {
+                    new Models.Navigation.NavigationItem
+                    {
+                         Name = "Schema Viewer",
+                         Href = "schema-tools/schema-viewer",
+                         MatchType = Models.Navigation.NavigationMatchType.Exact
+                    }
+                }
+            }
+    };
+
+    private async Task OnMouseEnter()
+    {
+        if (!expanded)
+        {
+            expanded = true;
+            await OnLeftSideBarToggle.InvokeAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnMouseLeave()
+    {
+        if (!pinned)
+        {
+            expanded = false;
+            await OnLeftSideBarToggle.InvokeAsync();
+            StateHasChanged();
+        }
+    }
+
+    private void SetPinState(bool pinSet)
+    {
+        if (this.pinned != pinSet)
+        {
+            this.pinned = pinSet;
+            StateHasChanged();
+        }
+    }
+}

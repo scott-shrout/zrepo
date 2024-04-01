@@ -1,0 +1,10 @@
+page-header[b-ranshnkka6] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+page-title[b-ranshnkka6] {
+    font-weight: 300;
+    font-size: 1.8em;
+}

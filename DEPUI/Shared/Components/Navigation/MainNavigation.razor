@@ -1,0 +1,15 @@
+﻿@using DEPUI.Models.Navigation;
+@if (Items != null)
+{
+    <main-navigation>
+        @foreach(var item in Items)
+        {
+            <NavigationItemGroup Item="@item"  />
+        }
+    </main-navigation>
+}
+@code {
+    
+    [Parameter]
+    public Models.Navigation.NavigationItemGroup[]? Items { get; set; }
+}

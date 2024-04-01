@@ -1,0 +1,19 @@
+﻿file-upload {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+file-upload ::deep input {
+    display: none;
+}
+
+    file-upload ::deep button {
+        font-size: 0.8em;
+    }
+
+    file-select-name {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+    }

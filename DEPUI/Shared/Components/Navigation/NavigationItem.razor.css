@@ -1,0 +1,14 @@
+﻿navigation-item, navigation-item ::deep a {
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: none;
+    user-select: none;
+    background-color: var(--light-green);
+    white-space: nowrap;
+}
+
+   
+
+navigation-item .active {
+    font-weight: 600;
+}

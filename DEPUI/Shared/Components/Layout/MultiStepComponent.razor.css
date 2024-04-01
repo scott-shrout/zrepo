@@ -1,0 +1,33 @@
+﻿
+multi-step-component {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    height: 100%;
+}
+
+    multi-step-component step-indicator-controls {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    multi-step-component step-indicator {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 30%;
+    }
+
+    multi-step-component step-indicator-controls {
+        display: flex;
+    }
+
+    multi-step-component step-indicator-controls step-controls {
+        display: flex;
+        column-gap: 5px;
+    }
+
+
+current-step-content {
+    height: 100%;
+}

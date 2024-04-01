@@ -1,0 +1,15 @@
+﻿
+data-entry-textbox
+ {
+    display: block;
+   padding: 5px;
+   border: 1px solid lightgray;
+   border-radius: 8px;
+}
+
+data-entry-textbox ::deep input {
+    border: 0;
+    outline: none;
+    padding: 3px 5px;
+    
+}

@@ -1,0 +1,16 @@
+﻿<group-box>
+    <group-box-contents>
+        @ChildContent
+        </group-box-contents>
+
+</group-box>
+
+
+
+
+
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

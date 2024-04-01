@@ -1,0 +1,47 @@
+﻿<image-transitioner>
+    <img alt="@AltText" src="@($"images/{visibleImagePath}")" style="@($"--height: {height}; --opacity: {opacity}")"  />
+
+    </image-transitioner>
+
+@code {
+    [Parameter]
+    public string? CurrentImagePath { get; set; }
+    [Parameter]
+    public string? Height { get; set; }
+    [Parameter]
+    public string? AltText { get; set; }
+    private string? visibleImagePath;
+    private string? height;
+    private double opacity;
+    private bool resizing;
+
+    protected override void OnParametersSet()
+    {
+        if (CurrentImagePath != visibleImagePath || Height != height)
+        {
+            if (visibleImagePath == null)
+            {
+                visibleImagePath = CurrentImagePath;
+                height = Height;
+                opacity = 1;
+                StateHasChanged();
+                return;
+            }
+            resizing = true;
+            opacity = 0;
+            StateHasChanged();
+        }
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if(resizing)
+        {
+            visibleImagePath = CurrentImagePath;
+            height = Height;
+            opacity = 1;
+            resizing = false;
+            StateHasChanged();
+        }
+    }
+}

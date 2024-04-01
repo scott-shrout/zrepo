@@ -1,0 +1,69 @@
+﻿@inject IJSRuntime JS
+<resizable-container style="@($"height: {elementHeight}px;")">
+    @currentChildContent
+</resizable-container>
+@if(measuring)
+{
+    <measuring-container>
+    <MeasuringContainer OnHeightChange="@OnHeightChange">
+        @ChildContent
+    </MeasuringContainer>
+    </measuring-container>
+
+}
+
+ 
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    private RenderFragment? currentChildContent { get; set; }
+    private ElementReference measuringContainer;
+    private double elementHeight;
+    private double originalHeight;
+    private double measuredHeight;
+    private bool measuring;
+    private bool measurePending;
+    private bool measureClosing;
+    protected override void OnParametersSet()
+    {
+        measuring = true;
+        StateHasChanged();
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+
+
+
+
+
+
+
+    }
+
+    private void OnHeightChange(double height)
+    {
+        if (height != elementHeight)
+        {
+            elementHeight = height;
+            currentChildContent = ChildContent;
+            measuring = false;
+            StateHasChanged();
+        }
+    }
+
+
+    private async Task<double?> GetScrollHeight()
+    {
+        try
+        {
+            return await JS.InvokeAsync<double>("getScrollHeight", measuringContainer);
+        }
+        catch
+        {
+            return null;
+        }
+    }
+}

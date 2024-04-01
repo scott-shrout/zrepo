@@ -1,0 +1,105 @@
+﻿@using DEPUI.Models.Layout
+@using DEPUI.Shared.Components.Shared
+@typeparam RequestType
+@if (Steps != null)
+{
+    <multi-step-component>
+
+
+        <step-indicator-controls>
+
+            <step-indicator>
+              <MultiStepSteps Steps="@Steps" CurrentStep="@CurrentStep" />
+
+                </step-indicator>
+            <step-controls>
+                <Button Disabled="@(!PreviousStepActive)" OnClick="@PreviousPage">Previous</Button>
+                <Button Disabled="@(!NextStepActive)" OnClick="@NextPage">Next</Button>
+            </step-controls>
+        </step-indicator-controls>
+
+        @if(Context?.Loading ?? true)
+        {
+            <LoadingIndicator />
+        }
+        else if (CurrentStep?.StepComponentType != null)
+        {
+            <current-step-content>
+                <DynamicComponent Type="@CurrentStep.StepComponentType" Parameters="@currentStepParameters" />
+            </current-step-content>
+        }
+
+
+
+
+
+    </multi-step-component>
+
+
+
+
+
+}
+
+@code {
+    [Parameter]
+    public MultiStepComponentContext<RequestType>? Context { get; set; }
+    [Parameter]
+    public IList<Models.Layout.MultiStepComponentStep>? Steps { get; set; }
+    public Models.Layout.MultiStepComponentStep? CurrentStep { get; private set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender && Steps is { Count: > 0 })
+        {
+            CurrentStep = Steps.First();
+            StateHasChanged();
+        }
+    }
+
+    private void OnUpdate()
+    {
+        StateHasChanged();
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+
+    private Dictionary<string, object> currentStepParameters => new()
+    {
+        { "Context", Context! },
+        {"OnUpdate", new EventCallbackFactory().Create(this,OnUpdate)}
+    };
+    private bool PreviousStepActive => Context?.PreviousStepActive?.Invoke(Context, CurrentStep!) ?? false;
+    private bool NextStepActive => Context?.NextStepActive?.Invoke(Context, CurrentStep!) ?? false;
+
+    private async Task NextPage()
+    {
+        if (Steps != null && CurrentStep != null)
+        {
+            var currentStepIndex = Steps.IndexOf(CurrentStep);
+            MultiStepComponentStep? nextStep;
+            var expectedNextStep = await Context!.OnNextStep!(Context!, CurrentStep!, new EventCallbackFactory().Create(this,OnUpdate));
+            if (expectedNextStep != null)
+            {
+                nextStep = Steps.FirstOrDefault(step => step.DisplayName == expectedNextStep);
+            }
+            else
+            {
+                nextStep = Steps[currentStepIndex + 1];
+            }
+            CurrentStep = nextStep;
+            StateHasChanged();
+        }
+    }
+
+    private void PreviousPage()
+    {
+        var currentStepIndex = Steps!.IndexOf(CurrentStep!);
+        var previousStep = Steps[currentStepIndex - 1];
+        CurrentStep = previousStep;
+        StateHasChanged();
+    }
+}

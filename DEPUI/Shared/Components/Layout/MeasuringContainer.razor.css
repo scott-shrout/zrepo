@@ -1,0 +1,6 @@
+﻿measuring-container {
+    max-height: 0;
+    visibility: hidden;
+    display: block;
+    height: auto;
+}

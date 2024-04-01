@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>DEPUI</PageTitle>
+
+<main-page>
+    <DEPUI.Shared.Components.Navigation.LeftSidebar OnLeftSideBarToggle="@OnLeftSideBarToggle" />
+    <main class="@(leftSideBaropen ? "margin-left-250" : "margin-left-70")">
+        @Body
+    </main>
+</main-page>
+
+
+@code {
+    private bool leftSideBaropen;
+
+    public void OnLeftSideBarToggle()
+    {
+        leftSideBaropen = !leftSideBaropen;
+        StateHasChanged();
+    }
+
+}

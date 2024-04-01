@@ -1,0 +1,12 @@
+﻿menu-bar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    padding: 7px;
+    border-radius: 8px;
+}
+
+menu-bar-icon img { 
+    height: 20px;
+}

@@ -1,0 +1,19 @@
+file-upload[b-86au4e2qlz] {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+file-upload[b-86au4e2qlz]  input {
+    display: none;
+}
+
+    file-upload[b-86au4e2qlz]  button {
+        font-size: 0.8em;
+    }
+
+    file-select-name[b-86au4e2qlz] {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+    }

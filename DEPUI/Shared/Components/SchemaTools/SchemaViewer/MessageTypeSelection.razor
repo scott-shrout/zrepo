@@ -1,0 +1,22 @@
+﻿@using DEPUI.Models.Form
+@using DEPUI.Shared.Components.Form;
+
+@if (Context?.Request != null)
+{
+<DataEntryForm Model="@Context.Request" OnUpdate="@OnUpdate">
+
+        <DataEntryComboBox @bind-Value="Context!.Request!.MessageTypeName" Label="Message Type" Selections="@messageTypeSelections" Id="LayoutType" />
+
+
+
+    </DataEntryForm>
+}
+@code {
+    [Parameter]
+    public Models.Layout.MultiStepComponentContext<Models.SchemaTools.SchemaViewer.SchemaViewerRequest>? Context { get; set; }
+    [Parameter]
+    public EventCallback OnUpdate { get; set; }
+
+    private IList<ComboBoxSelection>? messageTypeSelections => Context?.Request?.ApiSchema?.MessageTypes?.Select(item => new ComboBoxSelection { DataValue = item, DisplayValue = item }).ToArray();
+
+}

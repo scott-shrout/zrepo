@@ -1,0 +1,15 @@
+﻿<result-list>
+    <option-bar>@OptionBar</option-bar>
+    <result-content>
+        @ChildContent
+    </result-content>
+</result-list>
+
+@code {
+    [Parameter]
+    public string? Title { get; set; }
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment? OptionBar { get; set; }
+}

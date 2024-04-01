@@ -1,0 +1,79 @@
+left-sidebar[b-tk4xnnep5i] {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    transition: width ease-in-out 0.3s;
+    overflow: hidden;
+    font-size: 1.3em;
+}
+
+    left-sidebar.expanded[b-tk4xnnep5i] {
+        width: 230px;
+    }
+
+    left-sidebar.collapsed[b-tk4xnnep5i] {
+        width: 50px;
+        align-items: center;
+    }
+
+    left-sidebar main-branding-pin[b-tk4xnnep5i] {
+        display: flex;
+        justify-content: space-between;
+    }
+
+left-sidebar icon-image[b-tk4xnnep5i] {
+    padding: 8px;
+    display: flex; 
+    align-items: center;
+
+}
+
+    left-sidebar icon-image:hover[b-tk4xnnep5i] {
+        box-shadow: 120px 80px 40px 20px #0ff;
+    }
+
+
+    left-sidebar main-branding-pin-icon[b-tk4xnnep5i] {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    left-sidebar.collapsed main-branding-pin-icon[b-tk4xnnep5i] {
+        display: none;
+        padding: 2px;
+        border-radius: 8px;
+        user-select: none;
+    }
+
+    left-sidebar main-branding-pin-icon group-icon[b-tk4xnnep5i] {
+        display: flex;
+        justify-content: center;
+    }
+
+    left-sidebar main-branding-pin-icon[b-tk4xnnep5i] {
+        padding: 3px;
+    }
+        left-sidebar main-branding-pin-icon icon-image[b-tk4xnnep5i] {
+            display: flex;
+            align-items : center;
+        }
+
+        left-sidebar main-branding-pin-icon img[b-tk4xnnep5i] {
+            height: 15px;
+        }
+
+        left-sidebar main-branding-pin-icon img.active[b-tk4xnnep5i] {
+            transform: rotate(-90deg);
+        }
+
+    left-sidebar.expanded main-branding img[b-tk4xnnep5i] {
+        height: 80px;
+    }
+
+    left-sidebar.collapsed main-branding img[b-tk4xnnep5i] {
+        height: 50px;
+    }

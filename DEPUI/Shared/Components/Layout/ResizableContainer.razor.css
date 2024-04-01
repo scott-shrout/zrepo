@@ -1,0 +1,11 @@
+﻿resizable-container
+{
+    display: block;
+    transition: height ease-in-out 0.3s;
+    overflow: hidden;
+}
+
+measuring-container {
+    max-height: 0;
+    visibility: hidden;
+}

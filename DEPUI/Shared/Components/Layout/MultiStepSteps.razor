@@ -1,0 +1,41 @@
+﻿@using DEPUI.Models.Layout
+
+@if(Steps != null && CurrentStep != null)
+{
+<multistep-component-steps>
+    @foreach (var step in Steps!)
+    {
+        <multistep-component-step>
+            <step-name>
+             @step.DisplayName
+                </step-name>
+            <step-icon>
+                    @if (IsStepComplete(step)) {
+                        <img src="images/icons/check-mark-green.svg" alt="Complete" />
+                    }
+                    else if (step == CurrentStep) {
+                    <img src="images/icons/circle-arrow-down-solid.svg" alt="Current" />
+                    }
+            </step-icon>
+        </multistep-component-step>
+    }
+</multistep-component-steps>
+}
+@code {
+    [Parameter]
+    public IList<Models.Layout.MultiStepComponentStep>? Steps { get; set; }
+    [Parameter]
+    public MultiStepComponentStep? CurrentStep { get; set; }
+
+    private bool IsStepComplete(MultiStepComponentStep step)
+    {
+        if (CurrentStep == null || Steps == null)
+        {
+            return false;
+        }
+        var currentStepIndex = Steps.IndexOf(CurrentStep);
+        return Steps.IndexOf(step) < currentStepIndex;
+    }
+
+
+}

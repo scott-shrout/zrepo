@@ -1,0 +1,79 @@
+﻿left-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    transition: width ease-in-out 0.3s;
+    overflow: hidden;
+    font-size: 1.3em;
+}
+
+    left-sidebar.expanded {
+        width: 230px;
+    }
+
+    left-sidebar.collapsed {
+        width: 50px;
+        align-items: center;
+    }
+
+    left-sidebar main-branding-pin {
+        display: flex;
+        justify-content: space-between;
+    }
+
+left-sidebar icon-image {
+    padding: 8px;
+    display: flex; 
+    align-items: center;
+
+}
+
+    left-sidebar icon-image:hover {
+        box-shadow: 120px 80px 40px 20px #0ff;
+    }
+
+
+    left-sidebar main-branding-pin-icon {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    left-sidebar.collapsed main-branding-pin-icon {
+        display: none;
+        padding: 2px;
+        border-radius: 8px;
+        user-select: none;
+    }
+
+    left-sidebar main-branding-pin-icon group-icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    left-sidebar main-branding-pin-icon {
+        padding: 3px;
+    }
+        left-sidebar main-branding-pin-icon icon-image {
+            display: flex;
+            align-items : center;
+        }
+
+        left-sidebar main-branding-pin-icon img {
+            height: 15px;
+        }
+
+        left-sidebar main-branding-pin-icon img.active {
+            transform: rotate(-90deg);
+        }
+
+    left-sidebar.expanded main-branding img {
+        height: 80px;
+    }
+
+    left-sidebar.collapsed main-branding img {
+        height: 50px;
+    }

@@ -1,0 +1,134 @@
+﻿@page "/schema-tools/schema-viewer"
+@using DEPUI.Models.Layout
+@using DEPUI.Models.SchemaTools.SchemaViewer
+@using DEPUI.Processing.SchemaTools.SchemaTypes
+@using DEPUI.Processing.SchemaTools.SchemaViewer.FileReaders
+@using DEPUI.Shared.Components.Layout
+@using DEPUI.Shared.Components.SchemaTools.SchemaViewer
+<PageTitle>Schema Viewer</PageTitle>
+
+
+
+<GroupBox>
+    <schema-Viewer>
+        <h3>Schema Viewer</h3>
+    <DEPUI.Shared.Components.Layout.MultiStepComponent Steps="@steps" Context="@context" />
+</schema-Viewer>
+    </GroupBox>
+@code {
+    private IList<Models.Layout.MultiStepComponentStep> steps = new[]
+        {
+            new Models.Layout.MultiStepComponentStep
+            {
+                DisplayName = "File Selection",
+                StepComponentType = typeof(DEPUI.Shared.Components.SchemaTools.SchemaViewer.FileSelection)
+
+            },
+            new Models.Layout.MultiStepComponentStep
+            {
+                DisplayName = "Message Type Selection",
+                StepComponentType = typeof(DEPUI.Shared.Components.SchemaTools.SchemaViewer.MessageTypeSelection)
+
+            },
+            new Models.Layout.MultiStepComponentStep
+            {
+                DisplayName = "Result",
+                StepComponentType = typeof(DEPUI.Shared.Components.SchemaTools.SchemaViewer.Viewer)
+
+            }
+    };
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if(firstRender)
+        {
+            context = new MultiStepComponentContext<SchemaViewerRequest>
+                {
+                    Request = new SchemaViewerRequest(),
+                    PreviousStepActive = this.PreviousStepActive,
+                    NextStepActive = this.NextStepActive,
+                    OnNextStep = OnNext
+                };
+            StateHasChanged();
+        }
+    }
+
+    private MultiStepComponentContext<SchemaViewerRequest>? context;
+
+    private Func<MultiStepComponentContext<SchemaViewerRequest>, Models.Layout.MultiStepComponentStep, bool> PreviousStepActive = (context, currentStep) => currentStep?.DisplayName != "File Selection";
+    private Func<MultiStepComponentContext<SchemaViewerRequest>, Models.Layout.MultiStepComponentStep, bool> NextStepActive = (context, currentStep) =>
+    {
+        if (currentStep?.DisplayName == "Result")
+        {
+            return false;
+        }
+        switch (currentStep?.DisplayName)
+        {
+            case "File Selection":
+                return !string.IsNullOrEmpty(context.Request!.LayoutType) && (context.InputFile != null || context.Request.ApiSchema != null);
+
+            case "Message Type Selection":
+                return !string.IsNullOrEmpty(context.Request!.MessageTypeName);
+
+
+        }
+
+        return false;
+    };
+
+    private Func<MultiStepComponentContext<SchemaViewerRequest>, Models.Layout.MultiStepComponentStep, EventCallback, Task<string?>> OnNext = async (context, currentStep, onUpdate) =>
+    {
+        switch (currentStep.DisplayName)
+        {
+            case "File Selection":
+                if (context!.Request?.ApiSchema == null)
+                {
+                    context.Loading = true;
+                    await onUpdate.InvokeAsync();
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        using (var inputStream = context.InputFile!.OpenReadStream(50000000))
+                        {
+                            await inputStream.CopyToAsync(memoryStream);
+                            var schemaContents = YamlReader.GetYamlContents(memoryStream);
+                            context!.Request!.ApiSchema = context.Request.LayoutType == "AsyncAPI" ? new AsyncApiSchema(schemaContents) : new AsyncApiSchema(schemaContents);
+                            context!.Request.MessageTypeName = context!.Request!.ApiSchema.MessageTypes?.FirstOrDefault();
+                            context.Loading = false;
+                            if ((context!.Request!.ApiSchema?.MessageTypes?.Count ?? 0) == 1)
+                            {
+                                var messageTypeName = context!.Request!.MessageTypeName;
+                                var schema = context!.Request.ApiSchema;
+                                context.Request.MessageType = schema?.GetMessageType(messageTypeName!);
+                                return "Result";
+                            } 
+
+                        }
+                    }
+
+                }
+                break;
+
+
+            case "Message Type Selection":
+                if(context!.Request?.MessageTypeName != null)
+                {
+                    context.Loading = true;
+                    await onUpdate.InvokeAsync();
+                    var messageTypeName = context!.Request!.MessageTypeName;
+                    var schema = context!.Request.ApiSchema;
+                    context.Request.MessageType = schema?.GetMessageType(messageTypeName!);
+                    context.Loading = false;
+
+                }
+                break;
+
+        }
+
+        return null;
+
+   
+    };
+
+    
+
+}

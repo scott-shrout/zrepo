@@ -1,0 +1,16 @@
+
+button[b-m1j3j1f6ax] {
+    border: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+
+button:disabled[b-m1j3j1f6ax] {
+    background-color: var(--dark-pink);
+}

@@ -1,0 +1,17 @@
+multistep-component-step[b-1vr44ttv68] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85em;
+    flex-direction: column;
+}
+
+multistep-component-steps[b-1vr44ttv68] {
+    display: flex;
+    column-gap: 15px;
+    align-items: flex-start;
+}
+
+multistep-component-step step-icon img[b-1vr44ttv68] {
+    height: 20px;
+}

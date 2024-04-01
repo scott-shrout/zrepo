@@ -1,0 +1,183 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DEPUI
+build_property.RootNamespace = DEPUI
+build_property.ProjectDir = C:\Users\scott\source\repos\DEPUI\DEPUI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\scott\source\repos\DEPUI\DEPUI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Pages/SchemaTools/SchemaViewer/SchemaViewer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFNjaGVtYVZpZXdlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-hspwb65p06
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Form/DataEntryComboBox.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcRm9ybVxEYXRhRW50cnlDb21ib0JveC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-irfqlp4m31
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Form/DataEntryControl.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcRm9ybVxEYXRhRW50cnlDb250cm9sLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-4vrpgwg7b8
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Form/DataEntryFileUpload.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcRm9ybVxEYXRhRW50cnlGaWxlVXBsb2FkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-86au4e2qlz
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Form/DataEntryForm.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcRm9ybVxEYXRhRW50cnlGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-rzm51tticr
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Form/DataEntryTextBox.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcRm9ybVxEYXRhRW50cnlUZXh0Qm94LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-h74nsvme2g
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Layout/GroupBox.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTGF5b3V0XEdyb3VwQm94LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-nec423sxvr
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Layout/MeasuringContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTGF5b3V0XE1lYXN1cmluZ0NvbnRhaW5lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-1antw1l7m3
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Layout/MultiStepComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTGF5b3V0XE11bHRpU3RlcENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-fxa6n6ep5a
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Layout/MultiStepSteps.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTGF5b3V0XE11bHRpU3RlcFN0ZXBzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-1vr44ttv68
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Layout/PageHeader.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTGF5b3V0XFBhZ2VIZWFkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ranshnkka6
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Layout/ResizableContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTGF5b3V0XFJlc2l6YWJsZUNvbnRhaW5lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-275q9pntzt
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Layout/ResultList.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTGF5b3V0XFJlc3VsdExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-23pxv4tj7u
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Navigation/LeftSidebar.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvblxMZWZ0U2lkZWJhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-tk4xnnep5i
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Navigation/MainNavigation.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvblxNYWluTmF2aWdhdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-c8qz2avtqi
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Navigation/NavigationItem.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvblxOYXZpZ2F0aW9uSXRlbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-psuchuhj29
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Navigation/NavigationItemGroup.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvblxOYXZpZ2F0aW9uSXRlbUdyb3VwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-m965stkypy
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/FileSelection.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXEZpbGVTZWxlY3Rpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ckv05yek8o
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/MessageTypeSelection.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXE1lc3NhZ2VUeXBlU2VsZWN0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-pktm35azu5
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/SchemaNode.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFNjaGVtYU5vZGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ocjin7j5lu
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/SchemaNodeBase.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFNjaGVtYU5vZGVCYXNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-kge8hx4f6v
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/Button.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFNoYXJlZFxCdXR0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-m1j3j1f6ax
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/ImageTransitioner.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFNoYXJlZFxJbWFnZVRyYW5zaXRpb25lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-6i8sssy02l
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/LoadingIndicator.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFNoYXJlZFxMb2FkaW5nSW5kaWNhdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-3u4wunthqz
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/MenuBarIcon.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFNoYXJlZFxNZW51QmFySWNvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-d98skgo3fc
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Viewer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2NoZW1hVG9vbHNcU2NoZW1hVmlld2VyXFZpZXdlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ro0z96psll
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Shared/Button.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2hhcmVkXEJ1dHRvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5bsgu4k8fh
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Shared/ImageTransitioner.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2hhcmVkXEltYWdlVHJhbnNpdGlvbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-v3eqtpozmj
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Shared/LoadingIndicator.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2hhcmVkXExvYWRpbmdJbmRpY2F0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-htky1wnzql
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/Components/Shared/MenuBarIcon.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2hhcmVkXE1lbnVCYXJJY29uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-dyrkn2jcif
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-gd95aownec
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-07mtmmow2f
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/scott/source/repos/DEPUI/DEPUI/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

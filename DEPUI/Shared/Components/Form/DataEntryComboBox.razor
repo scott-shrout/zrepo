@@ -1,0 +1,36 @@
+﻿@using System.Linq.Expressions
+@using DEPUI.Models.Form
+@if (ValueExpression != null && Selections != null)
+{
+    <data-entry-combobox>
+   <DataEntryControl Label="@Label" Id="@Id">
+            <InputSelect ValueExpression="@(ValueExpression!)" ValueChanged="@ValueChanged" Value="@Value" id="@Id">
+            @foreach(var selection in Selections)
+            {
+                <option value="@selection.DataValue">@selection.DisplayValue</option>
+            }
+        </InputSelect>
+        </DataEntryControl>
+    </data-entry-combobox>
+}
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+    [Parameter]
+    public string? Id { get; set; }
+    [Parameter]
+    public virtual string? Value { get; set; }
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+    private InputSelect<string>? inputSelect;
+    [Parameter]
+    public Expression<Func<string>>? ValueExpression { get; set; }
+    [Parameter]
+    public IList<ComboBoxSelection>? Selections { get; set; }
+    private void test()
+    {
+
+    }
+  
+}

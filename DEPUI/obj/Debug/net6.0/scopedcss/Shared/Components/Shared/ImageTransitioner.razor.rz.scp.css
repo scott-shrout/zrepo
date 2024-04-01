@@ -1,0 +1,6 @@
+image-transitioner img[b-v3eqtpozmj]
+ {
+    height: var(--height);
+    opacity: var(--opacity);
+    transition: height ease-in 0.2s, opacity ease-in 0.2s;
+}

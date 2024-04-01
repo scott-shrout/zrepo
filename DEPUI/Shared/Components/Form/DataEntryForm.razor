@@ -1,0 +1,33 @@
+﻿<EditForm EditContext="@editContext" >
+    <data-entry-form>
+      
+    @ChildContent
+</data-entry-form>
+    </EditForm>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public object? Model { get; set; }
+    [Parameter]
+    public EventCallback OnUpdate { get; set; }
+    private object? model;
+    private EditContext? editContext;
+    protected override void OnParametersSet()
+    {
+        if (model != Model && Model != null) {
+            editContext = new EditContext(Model);
+            editContext.OnFieldChanged += (_, _) => OnValueChanged();
+            model = Model;
+        }
+    }
+
+    private async Task OnValueChanged()
+    {
+        await OnUpdate.InvokeAsync();
+    }
+
+    
+
+}

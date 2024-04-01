@@ -1,0 +1,45 @@
+﻿@inject IJSRuntime JS
+
+
+<measuring-container @ref="measuringContainer">
+    @ChildContent
+</measuring-container>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+    [Parameter]
+    public EventCallback<double> OnHeightChange { get; set; }
+    [Parameter]
+    public double CurrentHeight { get; set; }
+    private ElementReference measuringContainer;
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var scrollHeight = await GetScrollHeight();
+        if(scrollHeight != null)
+        {
+            await OnHeightChange.InvokeAsync(scrollHeight.Value);
+        }
+        // if (scrollHeight != null && CurrentHeight != scrollHeight)
+        // {
+        //     OnHeightChange.InvokeAsync(scrollHeight.Value);
+        // }
+    }
+
+
+
+    private async Task<double?> GetScrollHeight()
+    {
+        try
+        {
+            return await JS.InvokeAsync<double>("getScrollHeight", measuringContainer);
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+}

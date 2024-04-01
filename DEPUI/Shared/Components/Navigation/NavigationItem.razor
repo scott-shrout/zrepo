@@ -1,0 +1,46 @@
+﻿@inject NavigationManager NavigationManager
+@implements IAsyncDisposable
+@if(Item != null)
+{
+    <navigation-item>
+        @if (CurrentRoute != Item.Href)
+        {
+           
+            <NavLink href="@Item.Href">@Item.Name</NavLink>
+           
+        }
+        else
+        {
+            <span class="active">@Item.Name</span>
+        }
+
+        </navigation-item>
+}
+@code {
+    [Parameter]
+    public DEPUI.Models.Navigation.NavigationItem? Item { get; set; }
+
+    private string CurrentRoute => NavigationManager.Uri.Substring(NavigationManager.BaseUri.Length);
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if(firstRender)
+        {
+            NavigationManager.LocationChanged += OnLocationChanged;
+        }
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs args)
+    {
+        StateHasChanged();
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+
+        return ValueTask.CompletedTask;
+    }
+
+
+}

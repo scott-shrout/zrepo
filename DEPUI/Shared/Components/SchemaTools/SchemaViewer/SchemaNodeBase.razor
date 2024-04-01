@@ -1,0 +1,38 @@
+﻿@using DEPUI.Shared.Components.Layout
+@if(Item != null && Item.Base != null && Item.Children != null)
+{
+    <schema-node-base class="@(Item.Open ? "expanded" : "")">
+        <base-selector-name @onclick="ToggleExpanded">
+           
+      <base-selector>
+                <img src="images/icons/caret-right-solid.svg" alt="Expand" title="Expand" />
+  </base-selector>
+        <base-name >
+            @Item.Base.NodePath
+        </base-name>
+        </base-selector-name>
+        <base-selector-content style="max-height: @(Item.Open ? "10000px" :"0")">
+            @if (Item.Open)
+            {
+                @foreach (var schemaNode in Item.Children)
+                {
+                    <SchemaNode Item="@schemaNode" OnSetBaseNode="@OnSetBaseNode" />
+                }
+          }
+    </base-selector-content>
+    </schema-node-base>
+}
+
+@code {
+    [Parameter]
+    public Models.SchemaNode.SchemaNodeBase? Item { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnSetBaseNode { get; set; }
+
+    private void ToggleExpanded()
+    {
+        Item!.Open = !Item.Open;
+        StateHasChanged();
+    }
+}

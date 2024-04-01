@@ -1,0 +1,30 @@
+﻿@using System.Linq.Expressions
+@using DEPUI.Models.Form
+@if (ValueExpression != null)
+{
+    <data-entry-textbox>
+   <DataEntryControl Label="@Label" Id="@Id">
+            <InputText ValueExpression="@(ValueExpression!)" ValueChanged="@ValueChanged" Value="@Value" style="@($"width: {Width}px")" id="@Id" spellcheck="false"/>
+           
+        </DataEntryControl>
+    </data-entry-textbox>
+}
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+    [Parameter]
+    public string? Id { get; set; }
+    [Parameter]
+    public virtual string? Value { get; set; }
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+    private InputSelect<string>? inputSelect;
+    [Parameter]
+    public Expression<Func<string>>? ValueExpression { get; set; }
+    [Parameter]
+    public int Width { get; set; } = 50;
+
+   
+  
+}

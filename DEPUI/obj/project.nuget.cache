@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "49l2xmUk3pPEqLBbeShAOf4WVCHare/yKG8ogoeiigRauVAHGS4J8GYXMLPUTnZrYWJEUkIIswJb8+x2BtF2mg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\scott\\source\\repos\\DEPUI\\DEPUI\\DEPUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\scott\\.nuget\\packages\\yamldotnet\\15.1.2\\yamldotnet.15.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

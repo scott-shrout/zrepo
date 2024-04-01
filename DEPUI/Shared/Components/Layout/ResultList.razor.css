@@ -1,0 +1,17 @@
+﻿result-list {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    height: 100%;
+    row-gap: 10px;
+}
+
+result-list option-bar {
+    display: flex;
+    align-items: center;
+   
+}
+
+
+    result-list result-content {
+        height: 100%;
+    }

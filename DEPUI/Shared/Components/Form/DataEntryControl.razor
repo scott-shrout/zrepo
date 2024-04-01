@@ -1,0 +1,18 @@
+﻿<data-entry-control>
+    <control-label>
+        <label for="@Id">@Label</label>
+    </control-label>
+    <control-value>
+        @ChildContent
+    </control-value>
+   
+</data-entry-control>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+    [Parameter]
+    public string? Id { get; set; }
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

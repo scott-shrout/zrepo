@@ -1,0 +1,58 @@
+﻿@using DEPUI.Models.Navigation
+
+@if(Item != null) {
+<navigation-item-group class="@(Expanded ? "expanded" : "collapsed")">
+    <group-name-icon>
+            @if (Expanded)
+            {
+                @if (Item.IconPath != null)
+                {
+                    <group-icon>
+                        <img src="@($"images/icons/{Item.IconPath}")" alt="@($"{Item.Name} icon")" />
+
+
+
+                    </group-icon>
+                } 
+
+                <group-name>
+                    @Item.Name
+                </group-name>
+            }
+            else
+            {
+                @if (Item.IconPath != null)
+                {
+                    <group-icon>
+                        <img src="@($"images/icons/{Item.IconPath}")" alt="@($"{Item.Name} icon")" />
+
+
+
+                    </group-icon>
+                }
+            }
+        </group-name-icon>
+           <DEPUI.Shared.Components.Layout.ResizableContainer>
+    @if (Item.Items != null && Expanded)
+    {
+     
+        <group-items>
+            @foreach(var item in Item.Items)
+            {
+                    <NavigationItem Item="@item" />
+            }
+        </group-items>
+    }
+            </DEPUI.Shared.Components.Layout.ResizableContainer>
+</navigation-item-group>
+}
+
+
+
+@code {
+    [CascadingParameter(Name = "Expanded")]
+    public bool Expanded { get; set; }
+    [Parameter]
+    public Models.Navigation.NavigationItemGroup? Item { get; set; }
+    
+}

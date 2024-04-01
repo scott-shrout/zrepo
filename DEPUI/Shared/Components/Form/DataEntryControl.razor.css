@@ -1,0 +1,15 @@
+﻿data-entry-control {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+control-label {
+    font-size: 0.8em;
+    padding: 2px 8px;
+    user-select : none;
+}
+
+control-value {
+    padding: 0 5px;
+}

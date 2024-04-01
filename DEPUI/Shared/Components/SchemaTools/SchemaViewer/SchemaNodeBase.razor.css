@@ -1,0 +1,52 @@
+﻿schema-node-base {
+    box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1/6;
+    border-radius: 4px;
+    font-size: 0.9em;
+    background-color: white;
+}
+
+schema-node-base base-name {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-weight: 600;
+    grid-column: 2/6;
+}
+
+    schema-node-base base-selector-name {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1/6;
+        align-items: center;
+        padding: 5px;
+        user-select: none;
+    }
+
+        schema-node-base base-selector-name base-selector {
+            padding-left: 5px;
+        }
+
+        schema-node-base base-selector-name base-selector img {
+            height: 15px;
+        }
+
+    schema-node-base.expanded > base-selector-name > base-selector img {
+        transform: rotate(90deg);
+    }
+
+    schema-node-base base-selector-content {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 2/6;
+        transition: max-height 1s ease-in, height 1s ease-in;
+        overflow: auto;
+    }
+
+        schema-node-base base-selector-content ::deep result-item:nth-child(2n) {
+            background-color: whitesmoke;
+        }
+
+     

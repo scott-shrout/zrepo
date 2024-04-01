@@ -1,0 +1,12 @@
+main-page {
+    background-color: var(--light-gray);
+    height: 100%;
+    display: block;
+}
+
+main {
+    transition: margin-left ease-in-out 0.2s;
+    padding: 20px 0;
+    margin-right: 30px;
+    height: 100%;
+}

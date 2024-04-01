@@ -1,0 +1,769 @@
+/* _content/DEPUI/Pages/SchemaTools/SchemaViewer/SchemaViewer.razor.rz.scp.css */
+schema-viewer[b-hspwb65p06] {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    height: 100%;
+}
+
+/* _content/DEPUI/Shared/Components/Form/DataEntryComboBox.razor.rz.scp.css */
+
+data-entry-combobox[b-irfqlp4m31]
+ {
+   padding: 5px;
+   border: 1px solid lightgray;
+   border-radius: 8px;
+}
+/* _content/DEPUI/Shared/Components/Form/DataEntryControl.razor.rz.scp.css */
+data-entry-control[b-4vrpgwg7b8] {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+}
+
+control-label[b-4vrpgwg7b8] {
+    font-size: 0.8em;
+    padding: 2px 8px;
+    user-select : none;
+}
+
+control-value[b-4vrpgwg7b8] {
+    padding: 0 5px;
+}
+/* _content/DEPUI/Shared/Components/Form/DataEntryFileUpload.razor.rz.scp.css */
+file-upload[b-86au4e2qlz] {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+file-upload[b-86au4e2qlz]  input {
+    display: none;
+}
+
+    file-upload[b-86au4e2qlz]  button {
+        font-size: 0.8em;
+    }
+
+    file-select-name[b-86au4e2qlz] {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+    }
+/* _content/DEPUI/Shared/Components/Form/DataEntryForm.razor.rz.scp.css */
+data-entry-form[b-rzm51tticr] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+}
+/* _content/DEPUI/Shared/Components/Form/DataEntryTextBox.razor.rz.scp.css */
+
+data-entry-textbox[b-h74nsvme2g]
+ {
+    display: block;
+   padding: 5px;
+   border: 1px solid lightgray;
+   border-radius: 8px;
+}
+
+data-entry-textbox[b-h74nsvme2g]  input {
+    border: 0;
+    outline: none;
+    padding: 3px 5px;
+    
+}
+/* _content/DEPUI/Shared/Components/Layout/GroupBox.razor.rz.scp.css */
+group-box[b-nec423sxvr] {
+    box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+group-box-contents[b-nec423sxvr] {
+    height: 100%;
+}
+/* _content/DEPUI/Shared/Components/Layout/MeasuringContainer.razor.rz.scp.css */
+measuring-container[b-1antw1l7m3] {
+    max-height: 0;
+    visibility: hidden;
+    display: block;
+    height: auto;
+}
+/* _content/DEPUI/Shared/Components/Layout/MultiStepComponent.razor.rz.scp.css */
+
+multi-step-component[b-fxa6n6ep5a] {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    height: 100%;
+}
+
+    multi-step-component step-indicator-controls[b-fxa6n6ep5a] {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+    multi-step-component step-indicator[b-fxa6n6ep5a] {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 30%;
+    }
+
+    multi-step-component step-indicator-controls[b-fxa6n6ep5a] {
+        display: flex;
+    }
+
+    multi-step-component step-indicator-controls step-controls[b-fxa6n6ep5a] {
+        display: flex;
+        column-gap: 5px;
+    }
+
+
+current-step-content[b-fxa6n6ep5a] {
+    height: 100%;
+}
+/* _content/DEPUI/Shared/Components/Layout/MultiStepSteps.razor.rz.scp.css */
+multistep-component-step[b-1vr44ttv68] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85em;
+    flex-direction: column;
+}
+
+multistep-component-steps[b-1vr44ttv68] {
+    display: flex;
+    column-gap: 15px;
+    align-items: flex-start;
+}
+
+multistep-component-step step-icon img[b-1vr44ttv68] {
+    height: 20px;
+}
+/* _content/DEPUI/Shared/Components/Layout/PageHeader.razor.rz.scp.css */
+page-header[b-ranshnkka6] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+page-title[b-ranshnkka6] {
+    font-weight: 300;
+    font-size: 1.8em;
+}
+/* _content/DEPUI/Shared/Components/Layout/ResizableContainer.razor.rz.scp.css */
+resizable-container[b-275q9pntzt]
+{
+    display: block;
+    transition: height ease-in-out 0.3s;
+    overflow: hidden;
+}
+
+measuring-container[b-275q9pntzt] {
+    max-height: 0;
+    visibility: hidden;
+}
+/* _content/DEPUI/Shared/Components/Layout/ResultList.razor.rz.scp.css */
+result-list[b-23pxv4tj7u] {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    height: 100%;
+    row-gap: 10px;
+}
+
+result-list option-bar[b-23pxv4tj7u] {
+    display: flex;
+    align-items: center;
+   
+}
+
+
+    result-list result-content[b-23pxv4tj7u] {
+        height: 100%;
+    }
+/* _content/DEPUI/Shared/Components/Navigation/LeftSidebar.razor.rz.scp.css */
+left-sidebar[b-tk4xnnep5i] {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    transition: width ease-in-out 0.3s;
+    overflow: hidden;
+    font-size: 1.3em;
+}
+
+    left-sidebar.expanded[b-tk4xnnep5i] {
+        width: 230px;
+    }
+
+    left-sidebar.collapsed[b-tk4xnnep5i] {
+        width: 50px;
+        align-items: center;
+    }
+
+    left-sidebar main-branding-pin[b-tk4xnnep5i] {
+        display: flex;
+        justify-content: space-between;
+    }
+
+left-sidebar icon-image[b-tk4xnnep5i] {
+    padding: 8px;
+    display: flex; 
+    align-items: center;
+
+}
+
+    left-sidebar icon-image:hover[b-tk4xnnep5i] {
+        box-shadow: 120px 80px 40px 20px #0ff;
+    }
+
+
+    left-sidebar main-branding-pin-icon[b-tk4xnnep5i] {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    left-sidebar.collapsed main-branding-pin-icon[b-tk4xnnep5i] {
+        display: none;
+        padding: 2px;
+        border-radius: 8px;
+        user-select: none;
+    }
+
+    left-sidebar main-branding-pin-icon group-icon[b-tk4xnnep5i] {
+        display: flex;
+        justify-content: center;
+    }
+
+    left-sidebar main-branding-pin-icon[b-tk4xnnep5i] {
+        padding: 3px;
+    }
+        left-sidebar main-branding-pin-icon icon-image[b-tk4xnnep5i] {
+            display: flex;
+            align-items : center;
+        }
+
+        left-sidebar main-branding-pin-icon img[b-tk4xnnep5i] {
+            height: 15px;
+        }
+
+        left-sidebar main-branding-pin-icon img.active[b-tk4xnnep5i] {
+            transform: rotate(-90deg);
+        }
+
+    left-sidebar.expanded main-branding img[b-tk4xnnep5i] {
+        height: 80px;
+    }
+
+    left-sidebar.collapsed main-branding img[b-tk4xnnep5i] {
+        height: 50px;
+    }
+/* _content/DEPUI/Shared/Components/Navigation/MainNavigation.razor.rz.scp.css */
+main-navigation[b-c8qz2avtqi] {
+    display: flex;
+    flex-direction: column;
+}
+/* _content/DEPUI/Shared/Components/Navigation/NavigationItem.razor.rz.scp.css */
+navigation-item[b-psuchuhj29], navigation-item[b-psuchuhj29]  a {
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: none;
+    user-select: none;
+    background-color: var(--light-green);
+    white-space: nowrap;
+}
+
+   
+
+navigation-item .active[b-psuchuhj29] {
+    font-weight: 600;
+}
+/* _content/DEPUI/Shared/Components/Navigation/NavigationItemGroup.razor.rz.scp.css */
+navigation-item-group[b-m965stkypy] {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+    navigation-item-group group-name-icon[b-m965stkypy] {
+        display: flex;
+        align-items: center;
+        background-color: var(--dark-green);
+        padding: 3px 10px;
+        column-gap: 7px;
+        color: white;
+        font-size: 0.7em;
+        font-weight: 500;
+    }
+
+        navigation-item-group group-name-icon group-name[b-m965stkypy] {
+            white-space: nowrap;
+        }
+
+
+    navigation-item-group.collapsed group-name-icon group-name[b-m965stkypy] {
+        display: none;
+    }
+
+    
+    navigation-item-group.expanded group-name-icon group-icon img[b-m965stkypy] {
+        height: 13px;
+    }
+
+        navigation-item-group.collapsed group-name-icon group-icon img[b-m965stkypy] {
+        height: 40px;
+    }
+
+navigation-item-group group-items[b-m965stkypy] {
+    display: flex;
+    flex-direction: column;
+
+}
+
+    navigation-item-group group-items[b-m965stkypy]  navigation-item {
+        padding: 2px 30px;
+    }
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/FileSelection.razor.rz.scp.css */
+file-selection[b-ckv05yek8o] {
+    display: flex;
+    column-gap: 5px;
+}
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/MessageTypeSelection.razor.rz.scp.css */
+body[b-pktm35azu5] {
+}
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/SchemaNode.razor.rz.scp.css */
+result-item[b-ocjin7j5lu] {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1/6;
+    background-color: white;
+    border-radius: 8px;
+    column-gap: 20px;
+    align-items: flex-start;
+}
+
+
+    result-item > item-title-bar[b-ocjin7j5lu] {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1/5;
+        column-gap: 20px;
+        align-items: flex-start;
+        font-weight: 300;
+        padding-right: 10px;
+    }
+
+        result-item > item-title-bar item-expander-options[b-ocjin7j5lu] {
+            display: flex;
+            column-gap: 5px;
+            align-items: center;
+        }
+
+            result-item > item-title-bar item-expander-options img[b-ocjin7j5lu] {
+                height: 15px;
+            }
+
+            result-item > item-title-bar item-expander-options  item-expander[b-ocjin7j5lu] {
+                padding: 3px 5px;
+            }
+
+
+    result-item.expanded > item-title-bar item-expander-options  item-expander img[b-ocjin7j5lu] {
+        transform: rotate(90deg);
+    }
+
+        result-item > item-title-bar > item-type[b-ocjin7j5lu] {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+            padding: 3px 5px;
+            font-weight: 500;
+            margin: 2px 0;
+        }
+
+    result-item > item-title-bar > item-title[b-ocjin7j5lu] {
+        padding: 3px;
+    }
+
+       
+       
+       
+
+    result-item item-content[b-ocjin7j5lu] {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-column: 2/5;
+    }
+        result-item item-content property-list[b-ocjin7j5lu] {
+            padding: 5px 10px;
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: 1/3;
+            background-color: hsl(45, 29%, 97%);
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            column-gap: 50px;
+
+        }
+        result-item item-content property-list-header[b-ocjin7j5lu] {
+            display: grid;
+            grid-template-columns: subgrid;
+            font-weight: 600;
+            grid-column: 1/3;
+        }
+
+
+        result-item item-content property-list-contents[b-ocjin7j5lu] {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: 1/3;
+            column-gap: 10px;
+            font-size: 0.9em;
+            font-weight: 400;
+            column-gap: 50px;
+        }
+
+        result-item item-content property-list-contents property-value[b-ocjin7j5lu] {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 200px;
+        }
+
+                
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/SchemaNodeBase.razor.rz.scp.css */
+schema-node-base[b-kge8hx4f6v] {
+    box-shadow: rgba(0, 0, 0, 0.133) 0px 1.6px 3.6px 0px, rgba(0, 0, 0, 0.11) 0px 0.3px 0.9px 0px;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1/6;
+    border-radius: 4px;
+    font-size: 0.9em;
+    background-color: white;
+}
+
+schema-node-base base-name[b-kge8hx4f6v] {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-weight: 600;
+    grid-column: 2/6;
+}
+
+    schema-node-base base-selector-name[b-kge8hx4f6v] {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1/6;
+        align-items: center;
+        padding: 5px;
+        user-select: none;
+    }
+
+        schema-node-base base-selector-name base-selector[b-kge8hx4f6v] {
+            padding-left: 5px;
+        }
+
+        schema-node-base base-selector-name base-selector img[b-kge8hx4f6v] {
+            height: 15px;
+        }
+
+    schema-node-base.expanded > base-selector-name > base-selector img[b-kge8hx4f6v] {
+        transform: rotate(90deg);
+    }
+
+    schema-node-base base-selector-content[b-kge8hx4f6v] {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 2/6;
+        transition: max-height 1s ease-in, height 1s ease-in;
+        overflow: auto;
+    }
+
+        schema-node-base base-selector-content[b-kge8hx4f6v]  result-item:nth-child(2n) {
+            background-color: whitesmoke;
+        }
+
+     
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/Button.razor.rz.scp.css */
+
+button[b-m1j3j1f6ax] {
+    border: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+
+button:disabled[b-m1j3j1f6ax] {
+    background-color: var(--dark-pink);
+}
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/ImageTransitioner.razor.rz.scp.css */
+image-transitioner img[b-6i8sssy02l]
+ {
+    height: var(--height);
+    opacity: var(--opacity);
+    transition: height ease-in 0.2s, opacity ease-in 0.2s;
+}
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/LoadingIndicator.razor.rz.scp.css */
+loading-indicator[b-3u4wunthqz] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    loading-indicator img[b-3u4wunthqz] {
+        height: 40px;
+        animation: spinner-b-3u4wunthqz 2s linear infinite;
+    }
+
+@keyframes spinner-b-3u4wunthqz {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Shared/MenuBarIcon.razor.rz.scp.css */
+menu-bar-icon[b-d98skgo3fc] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    padding: 7px;
+    border-radius: 8px;
+}
+
+menu-bar-icon img[b-d98skgo3fc] { 
+    height: 20px;
+}
+/* _content/DEPUI/Shared/Components/SchemaTools/SchemaViewer/Viewer.razor.rz.scp.css */
+viewer-results[b-ro0z96psll] {
+    display: grid;
+    grid-template-columns: max-content max-content minmax(150px,max-content) minmax(50px,max-content) 1fr;
+    overflow-y: auto;
+    grid-template-rows: max-content 1fr;
+    column-gap: 10px;
+}
+
+    options-bar[b-ro0z96psll] {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+        options-bar search-bar[b-ro0z96psll] {
+            display:flex;
+            column-gap: 5px;
+        }
+
+            options-bar search-bar[b-ro0z96psll]  button {
+                padding: 8px;
+            }
+
+            options-bar search-bar[b-ro0z96psll]  button img {
+                height: 20px;
+            }
+
+            viewer-header[b-ro0z96psll] {
+                display: grid;
+                grid-template-columns: subgrid;
+                grid-column: 1/6;
+                background-color: var(--dark-green);
+                color: white;
+                font-weight: 500;
+                padding: 5px 0;
+                align-items: flex-start;
+                border-radius: 5px 5px 0 0;
+            }
+
+    viewer-header viewer-header-first-line[b-ro0z96psll] {
+        grid-column: 2/5;
+    }
+
+    viewer-header viewer-header-second-line[b-ro0z96psll] {
+        grid-column: 3/6;
+    }
+
+utility-selections[b-ro0z96psll] {
+    display: flex;
+    align-items: flex-end;
+}
+
+viewer-results-content[b-ro0z96psll] {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1/6;
+    column-gap: 20px;
+    row-gap: 5px;
+    padding: 5px;
+    font-size: 1em;
+    border-left: 2px solid whitesmoke;
+    border-bottom: 2px solid whitesmoke;
+    border-right: 2px solid whitesmoke;
+    border-radius: 0 0 8px 8px;
+    height: 100%;
+    grid-template-rows: var(--grid-rows);
+    background-color: var(--light-gray);
+    height: calc(100vh - 350px);
+    overflow-y: auto;
+}
+
+    
+
+    viewer-results-content[b-ro0z96psll]  resizable-container {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1/5;
+    }
+
+/* _content/DEPUI/Shared/Components/Shared/Button.razor.rz.scp.css */
+
+button[b-5bsgu4k8fh] {
+    border: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+
+button:disabled[b-5bsgu4k8fh] {
+    background-color: var(--dark-pink);
+}
+/* _content/DEPUI/Shared/Components/Shared/ImageTransitioner.razor.rz.scp.css */
+image-transitioner img[b-v3eqtpozmj]
+ {
+    height: var(--height);
+    opacity: var(--opacity);
+    transition: height ease-in 0.2s, opacity ease-in 0.2s;
+}
+/* _content/DEPUI/Shared/Components/Shared/LoadingIndicator.razor.rz.scp.css */
+loading-indicator[b-htky1wnzql] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    loading-indicator img[b-htky1wnzql] {
+        height: 40px;
+        animation: spinner-b-htky1wnzql 2s linear infinite;
+    }
+
+@keyframes spinner-b-htky1wnzql {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* _content/DEPUI/Shared/Components/Shared/MenuBarIcon.razor.rz.scp.css */
+menu-bar-icon[b-dyrkn2jcif] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    padding: 7px;
+    border-radius: 8px;
+}
+
+menu-bar-icon img[b-dyrkn2jcif] { 
+    height: 20px;
+}
+/* _content/DEPUI/Shared/MainLayout.razor.rz.scp.css */
+main-page[b-gd95aownec] {
+    background-color: var(--light-gray);
+    height: 100%;
+    display: block;
+}
+
+main[b-gd95aownec] {
+    transition: margin-left ease-in-out 0.2s;
+    padding: 20px 0;
+    margin-right: 30px;
+    height: 100%;
+}
+/* _content/DEPUI/Shared/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-07mtmmow2f] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-07mtmmow2f] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-07mtmmow2f] {
+    font-size: 1.1rem;
+}
+
+.oi[b-07mtmmow2f] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-07mtmmow2f] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-07mtmmow2f] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-07mtmmow2f] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-07mtmmow2f]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+.nav-item[b-07mtmmow2f]  a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.nav-item[b-07mtmmow2f]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-07mtmmow2f] {
+        display: none;
+    }
+
+    .collapse[b-07mtmmow2f] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}

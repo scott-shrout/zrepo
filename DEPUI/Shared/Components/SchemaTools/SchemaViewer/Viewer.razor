@@ -1,0 +1,135 @@
+﻿@using DEPUI.Interfaces.Schema
+@using DEPUI.Models.Form
+@using DEPUI.Models.SchemaNode
+@using DEPUI.Shared.Components.Layout;
+@using DEPUI.Shared.Components.SchemaTools.SchemaViewer;
+@using DEPUI.Shared.Components.Shared;
+@using DEPUI.Shared.Components.Form;
+@using System.Text.Json
+@inject IJSRuntime JS;
+<ResultList>
+    <ChildContent>
+        @if (Results != null)
+        {
+    <viewer-results> 
+        <viewer-header>
+                    <viewer-header-first-line>
+                Parent Path
+                </viewer-header-first-line>
+           <div></div>
+                    <div></div>
+                    <div></div>
+                    <div>Name</div>
+            <div>Type</div>
+            <div>Description</div>
+           
+            </viewer-header>
+                <viewer-results-content style="@($"--grid-rows: repeat({Results.Count},max-content) 1fr")">
+                    @foreach (var item in Results)
+            {
+                        <SchemaNodeBase Item="@item" OnSetBaseNode="@SetBaseNode" />
+            } 
+            <div></div>
+            </viewer-results-content>
+        </viewer-results>
+     }
+    </ChildContent>
+    <OptionBar>
+        <options-bar>
+             <EditForm Model="@Context.Request">
+            <search-bar>
+                    <DataEntryTextBox Label="Parent Path" @bind-Value="@Context.Request!.SearchPath" Width="350" />
+                    <DataEntryTextBox Label="Name" @bind-Value="@Context.Request!.SearchName" Width="200"  />
+                    <DataEntryComboBox Label="Type" @bind-Value="@Context.Request.SearchType" Selections="@searchTypeSelections" />
+                    <Button OnClick="@ApplySearch">
+                    <img src="images/icons/magnifying-glass-white.svg" />
+                </Button>
+               
+                </search-bar>
+            </EditForm>
+            <utility-selections>
+                <DEPUI.Shared.Components.Shared.MenuBarIcon IconPath="file-code-white.svg" AltText="Generate Avro Schema" OnClick="@GenerateAvroSchema" />
+            </utility-selections>
+        </options-bar>
+    </OptionBar>
+    </ResultList>
+
+@code {
+    [Parameter]
+    public Models.Layout.MultiStepComponentContext<Models.SchemaTools.SchemaViewer.SchemaViewerRequest>? Context { get; set; }
+    [Parameter]
+    public EventCallback OnUpdate { get; set; }
+
+    private IList<Models.SchemaNode.SchemaNodeBase>? Results { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            ApplySearch();
+        }
+    }
+
+    private void ApplySearch()
+    {
+        var result = Context!.Request!.MessageType!.AllNodes.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(Context?.Request.SearchPath))
+        {
+            var searchPath = Context?.Request.SearchPath;
+            result = result.Where(item => item.Parent != null && item.Parent.NodePath == searchPath);
+        }
+
+        if(!string.IsNullOrWhiteSpace(Context?.Request.SearchName))
+        {
+            result = result.Where(item => item.Name == Context.Request.SearchName);
+        }
+
+        if (Context?.Request.SearchType != null && Context?.Request.SearchType != string.Empty)
+        {
+            result = result.Where(item => item.GetType() == Models.SchemaNode.SchemaNode.TypeDisplayMappings[Context.Request.SearchType]);
+        }
+
+
+        Results = result.GroupBy(item => item.Parent)
+                        .Select(item => new Models.SchemaNode.SchemaNodeBase() { Base = item.Key, Children = item.ToArray(), Open = true })
+                        .ToArray();
+
+        StateHasChanged();
+
+    }
+
+    private IList<ComboBoxSelection> searchTypeSelections => Models.SchemaNode.SchemaNode.TypeDisplayMappings
+                                                             .Select(type => new ComboBoxSelection()
+                                                                 {
+                                                                     DataValue = type.Key,
+                                                                     DisplayValue = type.Key
+                                                                 })
+                                                                 .Prepend(new ComboBoxSelection() { DataValue = string.Empty, DisplayValue = string.Empty })
+                                                                 .ToArray();
+
+
+    private void SetBaseNode(string baseNodePath)
+    {
+        Context!.Request!.SearchPath = baseNodePath;
+        Context.Request.SearchName = null;
+        Context.Request.SearchType = string.Empty;
+        ApplySearch();
+    }
+
+    private async Task GenerateAvroSchema()
+    {
+        var avroObject = Context?.Request?.MessageType?.BaseNode.GetAvroObject();
+        if (avroObject != null)
+        {
+            using(var memoryStream = new MemoryStream())
+            {
+                await JsonSerializer.SerializeAsync(memoryStream, avroObject, new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase, WriteIndented = true });
+                memoryStream.Seek(0, SeekOrigin.Begin);
+                using (var streamReference = new DotNetStreamReference(memoryStream))
+                    await JS.InvokeVoidAsync("downloadFileFromStream", "avro-schema.avsc", streamReference);
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,107 @@
+﻿@using DEPUI.Interfaces.Schema
+@using DEPUI.Models.SchemaNode
+@using DEPUI.Shared.Components.Layout
+@if (Item != null)
+{
+    <result-item class="@(isOpen ? "expanded" : "")">
+        <item-title-bar>
+            <item-expander-options>
+            @if (Item.HasDisplayProperties)
+            {
+                <item-expander @onclick="ToggleOpen">
+                    <img src="images/icons/caret-right-solid.svg" alt="Expand" title="Expand" />
+                </item-expander>
+            }
+                @if(Item is IHasChildNodes)
+                {
+                    <set-base-node-option @onclick="() => SetBaseNode(Item)">
+                    <img src="images/icons/location-crosshairs-solid.svg" alt="Set Base Node" title="Set Base Node" />
+                    </set-base-node-option>
+                }
+            </item-expander-options>
+            <item-title>
+                @Item.Name
+            </item-title>
+            <item-type>@Item.TypeDisplayName</item-type>
+            <item-description>
+                @Item.Description
+            </item-description>
+        </item-title-bar>
+        <item-content>
+
+
+
+            @if (isOpen)
+            {
+                <property-list>
+                    <property-list-header>
+                        <property-header-attribute>
+                            Attribute
+                        </property-header-attribute>
+                        <property-header-value>
+                            Value
+                        </property-header-value>
+                    </property-list-header>
+                    <property-list-contents>
+                        @if (Item.ExampleValue != null)
+                        {
+                            <property-name>Example Value</property-name>
+                            <property-value>@Item.ExampleValue</property-value>
+                        }
+                        @if (Item.DefaultValue != null)
+                        {
+                            <property-name>Default Value</property-name>
+                            <property-value>@Item.DefaultValue</property-value>
+                        }
+                        @if (Item is StringSchemaNode stringSchemaNode)
+                        {
+
+                            @if (stringSchemaNode.Format != null)
+                            {
+                                <property-name>Format</property-name>
+                                <property-value>@stringSchemaNode.Format</property-value>
+                            }
+                            @if (stringSchemaNode.EnumerationValues != null)
+                            {
+                                <property-name>Enumeration Values</property-name>
+                                <property-value>
+                                    @foreach(var enumerationValue in stringSchemaNode.EnumerationValues)
+                                    {
+                                        <div>@enumerationValue</div>
+                                    }
+
+                                
+                                
+                                </property-value>
+                            }
+
+                        }
+
+
+                    </property-list-contents>
+                </property-list>
+            }
+
+
+        </item-content>
+    </result-item>
+}
+
+@code {
+    [Parameter]
+    public Models.SchemaNode.SchemaNode? Item { get; set; }
+    [Parameter]
+    public EventCallback<string> OnSetBaseNode { get; set; }
+    private bool isOpen;
+    private void ToggleOpen()
+    {
+        isOpen = !isOpen;
+        StateHasChanged();
+    }
+
+
+    private async Task SetBaseNode(Models.SchemaNode.SchemaNode schemaNode)
+    {
+        await OnSetBaseNode.InvokeAsync(schemaNode.NodePath);
+    }
+}
