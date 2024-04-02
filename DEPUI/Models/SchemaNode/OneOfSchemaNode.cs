@@ -5,10 +5,14 @@ namespace DEPUI.Models.SchemaNode
     public class OneOfSchemaNode : SchemaNode, IHasChildNodes
     {
         public IList<SchemaNode>? Children { get; set; }
-        public OneOfSchemaNode(string name, object[] oneOfItems, SchemaNode parent, Func<IDictionary<string, object?>, SchemaNode, SchemaNode[]> childrenBuilder) : base(name,parent)
+        public OneOfSchemaNode(string name, SchemaNode parent, IList<OneOfObjectGroupingItem> items, Func<IDictionary<string, object?>, SchemaNode, SchemaNode[]> childrenBuilder) : base(name, parent)
         {
-            Parent = parent;
-            Children = oneOfItems.Cast<IDictionary<string,object?>>().Select((child,index) => new OneOfObjectSchemaNode(this,child,index,childrenBuilder)).ToArray();
+            Children = items.Select(item =>
+            {
+                item.Value!.SequenceNumber = item.SequenceNumber;
+                item.Value.Parent = this;
+                return item!.Value;
+            }).ToArray();
         }
         public OneOfSchemaNode() { }
         public override string? TypeDisplayName => "OneOf";

@@ -7,7 +7,7 @@ namespace DEPUI.Models.SchemaNode
         public IList<SchemaNode>? Children { get; set; }
         public string? SpecificationTypeName => "object";
         public override string? TypeDisplayName => "Object";
-        public ObjectSchemaNode() { NodePath = "$"; }
+       public ObjectSchemaNode() { }
         public ObjectSchemaNode(string name, SchemaNode parent, IDictionary<string, object?> propertiesValueObject, Func<IDictionary<string, object?>, SchemaNode, SchemaNode[]> childrenBuilder) : base(name,parent, propertiesValueObject)
         {
             Children = childrenBuilder(propertiesValueObject, this);
@@ -17,17 +17,16 @@ namespace DEPUI.Models.SchemaNode
        
         public override IDictionary<string, object?> GetAvroObject()
         {
-            var name = NodePath == "$" ? "" : NodePath!.Substring(2).Replace(".", "");
-
+           
             
             var objectType = new Dictionary<string, object?>
             {
                 { "type", "record" },
-                { "name", name },
+                { "name", AvroNodePath },
                 { "fields", Children?.Select(child => child.GetAvroObject()).ToArray() ?? Array.Empty<IDictionary<string, object?>>() }
             };
 
-            if(Parent == null)
+            if(Parent == null || Parent is OneOfSchemaNode)
             {
                 return objectType;
             }

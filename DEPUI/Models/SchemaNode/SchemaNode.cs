@@ -2,34 +2,22 @@
 using DEPUI.Interfaces.Schema;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
+using YamlDotNet.Core.Tokens;
 
 namespace DEPUI.Models.SchemaNode
 {
     public abstract class SchemaNode
     {
-        public string? Name { get; set; }
-        public object? ExampleValue { get; set; }
-        public object? DefaultValue { get; set; }
-        public string? Description { get; set; }
+        public virtual string? Name { get; set; }
+        public virtual object? ExampleValue { get; set; }
+        public virtual object? DefaultValue { get; set; }
+        public virtual string? Description { get; set; }
         public abstract string? TypeDisplayName { get; }
-        private SchemaNode? parent;
-        public SchemaNode? Parent
-        {
-            get
-            {
-                return parent;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    NodePath = value.NodePath + "." + Name;
-                }
-                parent = value;
-            }
-        }
-        public string? NodePath { get; protected set; }
-
+        public int? SequenceNumber { get; set; }
+        public SchemaNode? Parent { get; set; }
+        
+        public string? NodePath => Parent == null ? "$" :  Parent?.NodePath + "." + Name + (SequenceNumber != null ? $"[{SequenceNumber}]" : string.Empty);
+        public string? AvroNodePath => Parent == null ? string.Empty : Parent.AvroNodePath + Name + (SequenceNumber?.ToString() ?? string.Empty);
         public virtual SchemaNode[] TreeNodes => new SchemaNode[] { this };
 
         private static Dictionary<string, Type>? schemaSpecificationTypeMappings;
@@ -75,10 +63,7 @@ namespace DEPUI.Models.SchemaNode
 
         public static SchemaNode? FromPropertySpecification(string name, SchemaNode parent, IDictionary<string, object?> propertyValues, Func<IDictionary<string, object?>, SchemaNode, SchemaNode[]> childrenBuilder)
         {
-            if (propertyValues.TryGetValue("oneOf", out var oneOfObject) && oneOfObject is object[] objectArrayValue) {
-                return new OneOfSchemaNode(name, objectArrayValue, parent, childrenBuilder);
-            }
-            else if (propertyValues.TryGetValue("type", out var typeObject))
+             if (propertyValues.TryGetValue("type", out var typeObject))
             {
                 var typeValue = typeObject as string;
                 Type newObjectType;

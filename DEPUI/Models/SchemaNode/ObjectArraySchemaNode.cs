@@ -1,7 +1,9 @@
 ﻿
+using DEPUI.Interfaces.Schema;
+
 namespace DEPUI.Models.SchemaNode
 {
-    public class ObjectArraySchemaNode : ArraySchemaNode
+    public class ObjectArraySchemaNode : ArraySchemaNode, IHasChildNodes
     {
         public ObjectArraySchemaNode() { }
         public override string? TypeDisplayName => "Array (Object)";
@@ -12,15 +14,17 @@ namespace DEPUI.Models.SchemaNode
 
         }
 
+
         public override SchemaNode[] TreeNodes => (Children ?? Array.Empty<SchemaNode>()).SelectMany(x => x.TreeNodes).Union(base.TreeNodes).ToArray();
+
+        public IList<SchemaNode>? Children { get; set; }
 
         public override IDictionary<string, object?> GetAvroObject()
         {
-            var name = NodePath == "$." ? "" : NodePath!.Substring(2).Replace(".", "");
             var objectType = new Dictionary<string, object?>
             {
                 { "type", "record" },
-                { "name", name },
+                { "name", AvroNodePath },
                 { "fields", Children?.Select(child => child.GetAvroObject()).ToArray() ?? Array.Empty<IDictionary<string, object?>>() }
             };
 
@@ -30,7 +34,7 @@ namespace DEPUI.Models.SchemaNode
                 {"type",new object[] { "null",new Dictionary<string,object?> {
                     {"type", "array" },
                     { "items", objectType },
-                    { "name", name + "Array"}
+                    { "name", AvroNodePath + "Array"}
                 } }},
                 {"name",Name }
             };

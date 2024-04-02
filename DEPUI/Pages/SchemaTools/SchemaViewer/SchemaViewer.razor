@@ -91,7 +91,7 @@
                         {
                             await inputStream.CopyToAsync(memoryStream);
                             var schemaContents = YamlReader.GetYamlContents(memoryStream);
-                            context!.Request!.ApiSchema = context.Request.LayoutType == "AsyncAPI" ? new AsyncApiSchema(schemaContents) : new AsyncApiSchema(schemaContents);
+                            context!.Request!.ApiSchema = context.Request.LayoutType == "AsyncAPI" ? new AsyncApiSchema(schemaContents) : new OpenApiSchema(schemaContents);
                             context!.Request.MessageTypeName = context!.Request!.ApiSchema.MessageTypes?.FirstOrDefault();
                             context.Loading = false;
                             if ((context!.Request!.ApiSchema?.MessageTypes?.Count ?? 0) == 1)

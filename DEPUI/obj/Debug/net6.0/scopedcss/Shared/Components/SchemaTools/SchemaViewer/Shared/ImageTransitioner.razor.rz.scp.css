@@ -1,6 +1,0 @@
-image-transitioner img[b-6i8sssy02l]
- {
-    height: var(--height);
-    opacity: var(--opacity);
-    transition: height ease-in 0.2s, opacity ease-in 0.2s;
-}

@@ -2,6 +2,7 @@
 using DEPUI.Extensions;
 using DEPUI.Models.SchemaNode;
 using DEPUI.Processing.SchemaTools.SchemaNode;
+
 namespace DEPUI.Processing.SchemaTools.SchemaTypes
 {
     public class AsyncApiSchema : ApiSchema
@@ -22,58 +23,7 @@ namespace DEPUI.Processing.SchemaTools.SchemaTypes
             return new SchemaMessageType(baseNode);
         }
 
-        private Models.SchemaNode.SchemaNode[] GetObjectValue(IDictionary<string,object?> inputObject, Models.SchemaNode.SchemaNode parent)
-        {
-            var schemaNodes = new List<Models.SchemaNode.SchemaNode>();
-            if (inputObject.TryGetValue("properties", out var propertyValue) && propertyValue is IDictionary<string, object?> propertyDictionaryValue)
-            {
-                schemaNodes.AddRange(GetPropertiesResult(propertyDictionaryValue, parent));
-            }
-
-            if (inputObject.TryGetValue("allOf", out var allOfValue) && allOfValue is object[] objectArrayAllOfValue)
-            {
-                schemaNodes.AddRange(GetChildPropertyResult(objectArrayAllOfValue, parent));
-            }
-
-           
-
-            return schemaNodes.ToArray();
-        }
-
-        private IList<Models.SchemaNode.SchemaNode> GetPropertiesResult(IDictionary<string, object?> inputObject, Models.SchemaNode.SchemaNode parent)
-        {
-            var schemaNodes = new List<Models.SchemaNode.SchemaNode>();
-            foreach (var property in inputObject)
-            {
-                if (property.Value is IDictionary<string, object?> propertiesValueDictionary)
-                {
-                    var newSchemaNode = Models.SchemaNode.SchemaNode.FromPropertySpecification(property.Key, parent, propertiesValueDictionary, GetObjectValue);
-                    if (newSchemaNode != null)
-                    {
-                        schemaNodes.Add(newSchemaNode);
-                    }
-                }
-            }
-
-            return schemaNodes;
-        }
-
-
-        private IList<Models.SchemaNode.SchemaNode> GetChildPropertyResult(object[] objectArrayAllOfValue, Models.SchemaNode.SchemaNode parent)
-        {
-            var schemaNodes = new List<Models.SchemaNode.SchemaNode>();
-            foreach(var allOfObject in  objectArrayAllOfValue)
-            {
-                if (allOfObject is IDictionary<string, object?> propertiesValueDictionary)
-                {
-                    schemaNodes.AddRange(GetObjectValue(propertiesValueDictionary,parent));
-                }
-            }
-
-            return schemaNodes;
-        }
-
-        
-
+        protected override IDictionary<string, object?> GetSchemaObject(IDictionary<string, object?> input) => input;
+       
     }
 }
